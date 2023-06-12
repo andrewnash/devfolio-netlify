@@ -121,6 +121,17 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-gifs`,
+          `gatsby-remark-embed-video`,
+          `gatsby-remark-images`,
+          `gatsby-remark-responsive-iframe`,
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
