@@ -18,7 +18,13 @@ To compete at the 30th annual IGVC, Paradigm had to design and build an original
 
 ![track](./comp_track.PNG)
 
-## Paradigm Software Overview
+## Vehicle
+
+The mechanical design of our competition entry is a testament to the team's innovation and engineering prowess. The vehicle's distinctive skid-steer drivetrain, with its two separate drivetrain modules, truly stands out. This configuration enables superior maneuverability, allowing the vehicle to smoothly navigate diverse landscapes, from smooth paved surfaces to challenging off-road terrains.
+
+![render](./render.png)
+
+## Software Overview
 
 I designed Paradigm's autonomous vehicle software strategy with the singular aim to excel in the Auto-Nav Challenge. This competition involved navigating a course littered with dynamic obstacles, which required a software system capable of advanced obstacle detection, real-time decision-making, and swift path adjustment.
 
@@ -38,8 +44,8 @@ CVTs use a cross-view, cross-attention mechanism to convert individual camera fe
 
 The two CVTs worked together to form a detailed bird's-eye-view of the environment. While one CVT instance detected obstacles, the other, dubbed the "driveable" model, mapped feasible navigation areas around the robot. My focus on collaboration and synchronization between these two models played a crucial role in our success in the Auto-Nav Challenge.
 
-Obstacle model sample prediction ![obstcale](./object_detection.PNG)
-Driveable model sample prediction ![driveable](./driveable.PNG)
+Obstacle model sample Bird's Eye View prediction (lighter color = higher confidence) ![obstcale](./object_detection.PNG)
+Driveable model sample Bird's Eye View prediction (lighter color = higher confidence) ![driveable](./driveable.PNG)
 
 ### Mapping & Path Planning
 
@@ -51,7 +57,7 @@ I designed our perception system to feed BEV predictions into the ROS Spatio-Tem
 
 ### Localization
 
-I used the ZED2 stereo camera and the BerryGPS-IMU to accurately localize the vehicle using visual odometry, acceleration, angular velocity, and geolocation data. I used the ROS2 implemented an Extended Kalman Filter (EKF) that consolidated these diverse data inputs, providing an accurate estimate of the vehicle's position. This localization pipeline is intentional simple as the BEV mapping does most of the heavy lifting.
+I used the ZED2 stereo camera and the BerryGPS-IMU to accurately localize the vehicle using visual odometry, acceleration, angular velocity, and geolocation data. I used the ROS2 implemented an Extended Kalman Filter (EKF) that consolidated these diverse data inputs, providing an accurate estimate of the vehicle's position. This localization pipeline is intentionally simple as the high FPS BEV mapping does most of the heavy lifting for navigation.
 
 ### Simulation
 
